@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.fabianpoiels</groupId>
-	<artifactId>les05</artifactId>
+	<artifactId>destination-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>les05</name>
-	<description>Opdracht 1 distributed application</description>
+	<name>destination-service</name>
+	<description>destination service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -46,27 +46,27 @@
 			<version>0.8.0</version>
 		</dependency>
 	</dependencies>
-		<repositories>
-<repository>
-        <id>jetstream-releases</id>
-         <url>http://maven.jetstream.one/repository/maven-releases/</url>
-         <releases>
-        <enabled>true</enabled>
-    </releases>
-    <snapshots>
-        <enabled>false</enabled>
-    </snapshots>
-</repository>
-<repository>
-    <id>jetstream-snapshots</id>
-    <url>http://maven.jetstream.one/repository/maven-snapshots/</url>
-    <releases>
-        <enabled>false</enabled>
-    </releases>
-    <snapshots>
-        <enabled>true</enabled>
-    </snapshots>
-</repository>
+	<repositories>
+		<repository>
+			<id>jetstream-releases</id>
+			<url>http://maven.jetstream.one/repository/maven-releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>jetstream-snapshots</id>
+			<url>http://maven.jetstream.one/repository/maven-snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<build>
@@ -74,6 +74,23 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.5</version>
+				<configuration>
+					<imageName>springdocker</imageName>
+					<baseImage>java</baseImage>
+					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
