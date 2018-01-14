@@ -89,7 +89,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>borissjroetskov/destination-service</repository>
+					<repository>fabianpoels/destination-service</repository>
 					<tag>${project.version}</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
