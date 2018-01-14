@@ -11,5 +11,4 @@ services:
 - docker
 script:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-- mvn clean package docker:build
-- docker push borissjroetskov/destination-service:latest
+- docker push borissjroetskov/destination-service:0.0.1
