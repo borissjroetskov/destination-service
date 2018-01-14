@@ -80,20 +80,10 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.5</version>
 				<configuration>
-					<imageName>destservdocker</imageName>
 					<imageTags>
           				<imageTag>latest</imageTag>
         			</imageTags>
 					<dockerDirectory>${basedir}</dockerDirectory>
-					<baseImage>java</baseImage>
-					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}.jar</include>
-						</resource>
-					</resources>
 				</configuration>
 			</plugin>
 		</plugins>
