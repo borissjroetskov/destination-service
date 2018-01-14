@@ -4,10 +4,12 @@ cache:
   - $HOME/.m2
 jdk:
 - oraclejdk8
+notifications:
+  email: false
 sudo: required
 services:
 - docker
 script:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 - mvn clean package docker:build
-- docker push borissjroetskov/destination-service
+- docker push borissjroetskov/destination-service:latest

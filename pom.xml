@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.fabianpoiels</groupId>
+	<groupId>com.fabianpoels</groupId>
 	<artifactId>destination-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -81,6 +81,9 @@
 				<version>0.4.5</version>
 				<configuration>
 					<imageName>destservdocker</imageName>
+					<imageTags>
+          				<imageTag>latest</imageTag>
+        			</imageTags>
 					<dockerDirectory>${basedir}</dockerDirectory>
 					<baseImage>java</baseImage>
 					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
