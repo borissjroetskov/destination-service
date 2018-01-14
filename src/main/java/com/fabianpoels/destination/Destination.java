@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Destination {
 
+	/*adding a comment*/
 	private long id;
 	private String city;
 	private String description;
