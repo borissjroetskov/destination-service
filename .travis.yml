@@ -11,4 +11,4 @@ services:
 - docker
 script:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-- docker push borissjroetskov/destination-service:0.0.1
+- docker push fabianpoels/destination-service:0.0.1
